@@ -14,13 +14,60 @@ class Videos{
     private var _vName: String
     private var _vImageUrl: String
     private var _vVideoUrl: String
-
+    private var _vPrice: String
+    private var _vRights: String
+    private var _vArtist: String
+    private var _vImid: String
+    private var _vGenre: String
+    private var _vLinkToiTunes: String
+    private var _vReleaseDate: String
+    
+    var vImageData: NSData?
     //Make a getter
     
     var vName: String {
     
         return _vName
     
+    }
+    
+    var vGenre: String {
+        
+        return _vGenre
+        
+    }
+    
+    var vLinkToiTunes: String {
+        
+        return _vLinkToiTunes
+        
+    }
+    
+    var vReleaseDate: String {
+        
+        return _vReleaseDate
+        
+    }
+    
+    var vPrice: String {
+        
+        return _vPrice
+        
+    }
+    var vRights: String {
+        
+        return _vRights
+        
+    }
+    var vArtist: String {
+        
+        return _vArtist
+        
+    }
+    var vImid: String {
+        
+        return _vImid
+        
     }
     var vImageUrl: String {
     
@@ -48,6 +95,45 @@ class Videos{
         
         }
         
+        
+        //Price
+        
+        if let price = data["im:price"] as? JSONDictioanry, vPrice = price["label"] as? String {
+            
+                self._vPrice = vPrice
+            
+            } else {
+            
+                self._vPrice = ""
+            
+            }
+        
+        //Rights
+        
+        if let rights = data["im:rights"] as? JSONDictioanry, vRights = rights["label"] as? String {
+            
+            self._vRights = vRights
+            
+        } else {
+            
+            self._vRights = ""
+            
+        }
+        
+        //Artist
+        
+        if let artist = data["im:artist"] as? JSONDictioanry, vArtist = artist["label"] as? String {
+            
+            self._vArtist = vArtist
+            
+        } else {
+            
+            self._vArtist = ""
+            
+        }
+        
+        
+    
         //The video image
         
         if let img = data["im:image"] as? JSONArray,
@@ -76,8 +162,57 @@ class Videos{
             self._vVideoUrl = ""
             
         }
-    
-    
+        
+        //Video genre
+        
+        if let genre  = data["category"] as? JSONDictioanry,
+            vAttr = genre["attributes"] as? JSONDictioanry,
+            vGenre = vAttr["term"] as? String {
+                self._vGenre = vGenre
+        }
+        else {
+            
+            self._vGenre = ""
+            
+        }
+        
+        if let releaseDate  = data["im:releaseDate"] as? JSONDictioanry,
+            vAttrRD = releaseDate["attributes"] as? JSONDictioanry,
+            vReleaseDate = vAttrRD["label"] as? String {
+                self._vReleaseDate = vReleaseDate
+        }
+        else {
+            
+            self._vReleaseDate = ""
+            
+        }
+        
+        //Im id
+        
+        if let imid  = data["id"] as? JSONDictioanry,
+            vAttrID = imid["attributes"] as? JSONDictioanry,
+            vImid = vAttrID["im:id"] as? String {
+            
+            self._vImid = vImid
+            
+        } else {
+            
+            self._vImid = ""
+            
+        }
+        
+        //iTunes Link
+        
+        if let linkToiTunes  = data["id"] as? JSONDictioanry,
+            vLinkToiTunes = linkToiTunes["label"] as? String {
+                
+                self._vLinkToiTunes = vLinkToiTunes
+                
+        } else {
+            
+            self._vLinkToiTunes = ""
+            
+        }
     
     }
 
