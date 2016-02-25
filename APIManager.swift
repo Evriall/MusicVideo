@@ -10,7 +10,7 @@ import Foundation
 
 class APIManager{
 
-    func loadData(urlString: String, completion: (result: String) -> Void) {
+    func loadData(urlString: String, completion: [Videos] -> Void) {
         let config = NSURLSessionConfiguration.ephemeralSessionConfiguration()
         let session = NSURLSession(configuration: config)
 //        let session = NSURLSession.sharedSession()
@@ -20,9 +20,10 @@ class APIManager{
             
             
                 if error != nil {
-                    dispatch_async(dispatch_get_main_queue()){
-                        completion(result: error!.localizedDescription)
-                    }
+//                    dispatch_async(dispatch_get_main_queue()){
+//                        completion(result: error!.localizedDescription)
+                    print(error!.localizedDescription)
+//                    }
                 } else {
                     //Added for JSONSerialization
 //                    print(data)
@@ -39,7 +40,7 @@ class APIManager{
                             
                                 let entry = Videos(data: entry as! JSONDictioanry)
                                 videos.append(entry)
-                                print(entry.vName)
+//                                print(entry.vName)
                             
                             }
                             let priority = DISPATCH_QUEUE_PRIORITY_HIGH
@@ -49,7 +50,7 @@ class APIManager{
                                 dispatch_async(dispatch_get_main_queue()){
                                 
                                 
-                                    completion(result: "JSONSerialization successfull")
+                                    completion(videos)
                                 
                                 }
                             
@@ -61,8 +62,9 @@ class APIManager{
                     
                         dispatch_async(dispatch_get_main_queue()){
                             
-                            
-                            completion(result: "JSONSerialization successfull")
+//                            let videos = [Videos]()
+//                            completion(videos)
+                            print("Error in NSJSONSerialization")
                             
                         }
 
