@@ -7,17 +7,48 @@
 //
 
 import UIKit
+var reachability: Reachability?
+var reacabilityStatus = WIFI
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var internetCheck: Reachability?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged:", name: kReachabilityChangedNotification, object: nil)
+        internetCheck = Reachability.reachabilityForInternetConnection()
+        internetCheck?.startNotifier()
         //Disable caching
 //        NSURLCache.setSharedURLCache(NSURLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil))
         return true
+    }
+    
+    func reachabilityChanged(notification: NSNotification){
+    
+        reachability = notification.object as? Reachability
+        statusChangedWithReachability(reachability!)
+    
+    }
+    
+    func statusChangedWithReachability(currentRechabilityStatus: Reachability){
+    
+        let networkStatus: NetworkStatus = currentRechabilityStatus.currentReachabilityStatus()
+        switch networkStatus.rawValue {
+        
+        case NotReachable.rawValue: reacabilityStatus = NOACCESS
+        case ReachableViaWiFi.rawValue: reacabilityStatus = WIFI
+        case ReachableViaWWAN.rawValue: reacabilityStatus = WWAN
+        default: return
+        }
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("ReachStatusChanged", object: nil)
+        
+        
+    
+    
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -39,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: kReachabilityChangedNotification, object: nil)
     }
 
 
