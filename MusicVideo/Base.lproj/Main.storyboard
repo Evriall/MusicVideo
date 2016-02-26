@@ -44,9 +44,7 @@
                             <outlet property="delegate" destination="YR6-76-HSl" id="V5y-rb-7o3"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="yp3-iO-ISO"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="2st-1U-A3y"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0p4-ci-zF6" userLabel="First Responder" sceneMemberID="firstResponder"/>

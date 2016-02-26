@@ -15,10 +15,6 @@ class MusicVideoTVC: UITableViewController {
         super.viewDidLoad()
          NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: "ReachStatusChanged", object: nil)
         reachabilityStatusChanged()
-        
-        // Call API
-        let api = APIManager()
-        api.loadData("https://itunes.apple.com/us/rss/topmusicvideos/limit=30/json", completion: didLoadData)
     }
     
     
@@ -34,18 +30,51 @@ class MusicVideoTVC: UITableViewController {
         
         tableView.reloadData()
     }
+    func runAPI(){
+        
+        // Call API
+        let api = APIManager()
+        api.loadData("https://itunes.apple.com/us/rss/topmusicvideos/limit=30/json", completion: didLoadData)
+    
+    }
 
     func reachabilityStatusChanged() {
         
         
         switch reachabilityStatus {
-        case NOACCESS: view.backgroundColor = UIColor.redColor()
-//        displayLabel.text = "No Internet"
-        case WIFI: view.backgroundColor = UIColor.greenColor()
-//        displayLabel.text = "Reachable with WiFi"
-        case WWAN: view.backgroundColor = UIColor.yellowColor()
-//        displayLabel.text = "Reachable with Cellular"
-        default: return
+        case NOACCESS:
+            view.backgroundColor = UIColor.redColor()
+            dispatch_async(dispatch_get_main_queue()){
+                let alert = UIAlertController(title: "No Internet Access", message: "Please make sure you are connected to the Internet", preferredStyle: .Alert)
+                let cancelAction = UIAlertAction(title: "Cancel", style: .Default) {
+                    action -> () in
+                    print("Cancel")
+                }
+                let deleteAction = UIAlertAction(title: "Delete", style: .Destructive) {
+                    action -> () in
+                    print("Delete")
+                }
+            
+                let okAction = UIAlertAction(title: "OK", style: .Default) {
+                    action -> () in
+                    print("OK")
+                }
+            
+                alert.addAction(okAction)
+                alert.addAction(cancelAction)
+                alert.addAction(deleteAction)
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+        default:
+            view.backgroundColor = UIColor.greenColor()
+            if videos.count > 0 {
+                print("Do not refresh API")
+               
+            } else {
+            
+                runAPI()
+            
+            }
         }
         
     }
