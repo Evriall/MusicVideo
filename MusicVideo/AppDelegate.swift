@@ -8,7 +8,7 @@
 
 import UIKit
 var reachability: Reachability?
-var reacabilityStatus = WIFI
+var reachabilityStatus = WIFI
 
 
 @UIApplicationMain
@@ -38,9 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let networkStatus: NetworkStatus = currentRechabilityStatus.currentReachabilityStatus()
         switch networkStatus.rawValue {
         
-        case NotReachable.rawValue: reacabilityStatus = NOACCESS
-        case ReachableViaWiFi.rawValue: reacabilityStatus = WIFI
-        case ReachableViaWWAN.rawValue: reacabilityStatus = WWAN
+        case NotReachable.rawValue: reachabilityStatus = NOACCESS
+        case ReachableViaWiFi.rawValue: reachabilityStatus = WIFI
+        case ReachableViaWWAN.rawValue: reachabilityStatus = WWAN
         default: return
         }
         
