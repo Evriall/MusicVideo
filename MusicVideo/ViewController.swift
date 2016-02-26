@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         
         for item in videos {
             
-            print(item.vName)
+//            print(item.vName)
         }
         
 //        for (index, item) in videos.enumerate() {
