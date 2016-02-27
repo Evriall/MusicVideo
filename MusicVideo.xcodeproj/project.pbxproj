@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9A79BD471C808C0E00D0529D /* MusicVideoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A79BD461C808C0E00D0529D /* MusicVideoTVC.swift */; };
+		9A79BD491C80D3DD00D0529D /* MusicVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A79BD481C80D3DD00D0529D /* MusicVideoTableViewCell.swift */; };
 		9ACF8D0B1C7DBE0700D64B91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF8D0A1C7DBE0700D64B91 /* AppDelegate.swift */; };
 		9ACF8D0D1C7DBE0700D64B91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF8D0C1C7DBE0700D64B91 /* ViewController.swift */; };
 		9ACF8D101C7DBE0700D64B91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ACF8D0E1C7DBE0700D64B91 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		9A79BD461C808C0E00D0529D /* MusicVideoTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoTVC.swift; sourceTree = "<group>"; };
+		9A79BD481C80D3DD00D0529D /* MusicVideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoTableViewCell.swift; sourceTree = "<group>"; };
 		9ACF8D071C7DBE0700D64B91 /* MusicVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ACF8D0A1C7DBE0700D64B91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9ACF8D0C1C7DBE0700D64B91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				9ACF8D0C1C7DBE0700D64B91 /* ViewController.swift */,
 				9A79BD461C808C0E00D0529D /* MusicVideoTVC.swift */,
+				9A79BD481C80D3DD00D0529D /* MusicVideoTableViewCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				9ACF8D3D1C7DD81600D64B91 /* APIManager.swift in Sources */,
 				9ACF8D0D1C7DBE0700D64B91 /* ViewController.swift in Sources */,
 				9ACF8D421C7DF56300D64B91 /* MusicVideo.swift in Sources */,
+				9A79BD491C80D3DD00D0529D /* MusicVideoTableViewCell.swift in Sources */,
 				9ACF8D0B1C7DBE0700D64B91 /* AppDelegate.swift in Sources */,
 				9AF30CE51C7F4A5F00EC0A57 /* Reachability.m in Sources */,
 				9ACF8D401C7DF3BC00D64B91 /* Constants.swift in Sources */,

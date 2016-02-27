@@ -36,9 +36,10 @@ class APIManager{
 //                            print(json)
                             
                             var videos = [Videos]()
-                            for entry in entries {
+                            for (index, entry) in entries.enumerate() {
                             
                                 let entry = Videos(data: entry as! JSONDictioanry)
+                                entry.vRank = index + 1
                                 videos.append(entry)
 //                                print(entry.vName)
                             
