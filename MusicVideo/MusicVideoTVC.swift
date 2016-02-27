@@ -112,7 +112,7 @@ class MusicVideoTVC: UITableViewController {
     private struct storyboard {
     
         static let  cellReuseIdentifier = "cell"
-        
+        static let  segueIdentifier = "musicDetail"
     
     
     }
@@ -123,6 +123,24 @@ class MusicVideoTVC: UITableViewController {
         cell.video = video
 
         return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == storyboard.segueIdentifier {
+        
+            if let indexPath = tableView.indexPathForSelectedRow {
+            
+            
+                let video = videos[indexPath.row]
+                let dvc = segue.destinationViewController as! MusicVideoDetailVC
+                dvc.videos = video
+                dvc.title = video.vArtist
+                
+             
+            }
+        
+        
+        }
     }
 
 }

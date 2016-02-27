@@ -112,7 +112,7 @@ class Videos{
         
         //Rights
         
-        if let rights = data["im:rights"] as? JSONDictioanry, vRights = rights["label"] as? String {
+        if let rights = data["rights"] as? JSONDictioanry, vRights = rights["label"] as? String {
             
             self._vRights = vRights
             

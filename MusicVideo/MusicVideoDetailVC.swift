@@ -10,10 +10,30 @@ import UIKit
 
 class MusicVideoDetailVC: UIViewController {
 
+    @IBOutlet weak var vName: UILabel!
+    @IBOutlet weak var vGenre: UILabel!
+    @IBOutlet weak var vPrice: UILabel!
+    @IBOutlet weak var vRights: UILabel!
+    @IBOutlet weak var videoImage: UIImageView!
+    
+    var videos: Videos?
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        vName.text = videos?.vName
+        vGenre.text = videos?.vGenre
+        vPrice.text = videos?.vPrice
+        vRights.text = videos?.vRights
+        print(videos?.vRights)
+        if videos?.vImageData != nil {
+        
+            videoImage.image = UIImage(data: (videos?.vImageData)!)
+        
+        } else {
+        
+            videoImage.image = UIImage(named: "imageNotAvailable")
+        
+        }
     }
 
 
