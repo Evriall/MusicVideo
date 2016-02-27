@@ -19,12 +19,15 @@ class MusicVideoDetailVC: UIViewController {
     var videos: Videos?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        vName.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+        vGenre.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+        vPrice.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+        vRights.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         vName.text = videos?.vName
         vGenre.text = videos?.vGenre
         vPrice.text = videos?.vPrice
         vRights.text = videos?.vRights
-        print(videos?.vRights)
+
         if videos?.vImageData != nil {
         
             videoImage.image = UIImage(data: (videos?.vImageData)!)

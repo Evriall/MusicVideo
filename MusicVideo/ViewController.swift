@@ -30,10 +30,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func didLoadData(videos: [Videos]){
          self.videos = videos
 //        print(videos.count)
-        for item in videos {
-            
-//            print(item.vName)
-        }
+//        for item in videos {
+//            
+////            print(item.vName)
+//        }
         
 //        for (index, item) in videos.enumerate() {
 //        

@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="132"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tyi-Kf-7VN" id="o0D-aT-W9f">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="132"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="131.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qvs-hd-VrV">
@@ -101,6 +101,11 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="5Wu-f6-Pmi"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ze1-Zn-bVQ">
                                 <rect key="frame" x="20" y="415" width="209" height="35"/>
@@ -110,6 +115,11 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="X18-M4-QdX"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NB1-by-UI2">
                                 <rect key="frame" x="504" y="416" width="76" height="34"/>
@@ -120,6 +130,12 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="3H3-Pf-6MQ"/>
+                                        <exclude reference="BlL-ho-iBE"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rights" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WL1-ix-qRc">
                                 <rect key="frame" x="1" y="458" width="599" height="98"/>
@@ -129,6 +145,11 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="jGP-e6-8VQ"/>
+                                    </mask>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -136,6 +157,7 @@
                             <constraint firstItem="GgH-ml-xfl" firstAttribute="centerX" secondItem="Hu0-o7-Q6P" secondAttribute="centerX" id="3mi-zh-vQ1"/>
                             <constraint firstItem="WL1-ix-qRc" firstAttribute="bottom" secondItem="qJv-8O-Mof" secondAttribute="top" id="CTX-ae-V5b"/>
                             <constraint firstItem="ze1-Zn-bVQ" firstAttribute="top" secondItem="Hu0-o7-Q6P" secondAttribute="bottom" constant="1" id="Cof-sg-XaT"/>
+                            <constraint firstItem="Hu0-o7-Q6P" firstAttribute="bottom" secondItem="qJv-8O-Mof" secondAttribute="top" id="EKx-3q-B2i"/>
                             <constraint firstItem="GgH-ml-xfl" firstAttribute="leading" secondItem="NZm-yJ-xoM" secondAttribute="leadingMargin" constant="-13" id="JcO-9d-Kb3"/>
                             <constraint firstItem="GgH-ml-xfl" firstAttribute="centerX" secondItem="NZm-yJ-xoM" secondAttribute="centerX" id="JdX-La-rL9"/>
                             <constraint firstItem="WL1-ix-qRc" firstAttribute="top" secondItem="ze1-Zn-bVQ" secondAttribute="bottom" constant="8" symbolic="YES" id="NRx-8Q-YXh"/>
@@ -144,11 +166,51 @@
                             <constraint firstItem="WL1-ix-qRc" firstAttribute="trailing" secondItem="Hu0-o7-Q6P" secondAttribute="trailing" id="T9V-4C-mpg"/>
                             <constraint firstItem="NB1-by-UI2" firstAttribute="trailing" secondItem="NZm-yJ-xoM" secondAttribute="trailingMargin" id="VRy-WN-oqE"/>
                             <constraint firstItem="NB1-by-UI2" firstAttribute="baseline" secondItem="ze1-Zn-bVQ" secondAttribute="baseline" id="ZVu-RN-XQb"/>
+                            <constraint firstItem="Hu0-o7-Q6P" firstAttribute="top" secondItem="9q2-ot-IfJ" secondAttribute="bottom" id="eic-73-LKq"/>
                             <constraint firstItem="GgH-ml-xfl" firstAttribute="top" secondItem="9q2-ot-IfJ" secondAttribute="bottom" id="jIq-jW-xMf"/>
                             <constraint firstItem="ze1-Zn-bVQ" firstAttribute="leading" secondItem="NZm-yJ-xoM" secondAttribute="leadingMargin" id="mF9-bC-Shj"/>
+                            <constraint firstItem="Hu0-o7-Q6P" firstAttribute="centerX" secondItem="NZm-yJ-xoM" secondAttribute="centerX" id="rGn-7x-qmf"/>
                             <constraint firstItem="Hu0-o7-Q6P" firstAttribute="top" secondItem="9q2-ot-IfJ" secondAttribute="bottom" constant="68" id="snz-iG-Fne"/>
+                            <constraint firstAttribute="trailing" secondItem="Hu0-o7-Q6P" secondAttribute="trailing" id="tlH-MW-vKu"/>
                             <constraint firstItem="WL1-ix-qRc" firstAttribute="leading" secondItem="Hu0-o7-Q6P" secondAttribute="leading" id="vM1-Et-7QS"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="EKx-3q-B2i"/>
+                                <exclude reference="eic-73-LKq"/>
+                                <exclude reference="rGn-7x-qmf"/>
+                                <exclude reference="tlH-MW-vKu"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="subviews">
+                                <exclude reference="GgH-ml-xfl"/>
+                                <exclude reference="ze1-Zn-bVQ"/>
+                                <exclude reference="NB1-by-UI2"/>
+                                <exclude reference="WL1-ix-qRc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="3mi-zh-vQ1"/>
+                                <exclude reference="JcO-9d-Kb3"/>
+                                <exclude reference="JdX-La-rL9"/>
+                                <exclude reference="jIq-jW-xMf"/>
+                                <exclude reference="Cof-sg-XaT"/>
+                                <exclude reference="Sdq-ck-7yI"/>
+                                <exclude reference="mF9-bC-Shj"/>
+                                <exclude reference="CTX-ae-V5b"/>
+                                <exclude reference="NRx-8Q-YXh"/>
+                                <exclude reference="T9V-4C-mpg"/>
+                                <exclude reference="vM1-Et-7QS"/>
+                                <exclude reference="VRy-WN-oqE"/>
+                                <exclude reference="ZVu-RN-XQb"/>
+                                <include reference="EKx-3q-B2i"/>
+                                <exclude reference="SKX-1V-Yca"/>
+                                <include reference="eic-73-LKq"/>
+                                <include reference="rGn-7x-qmf"/>
+                                <exclude reference="snz-iG-Fne"/>
+                                <include reference="tlH-MW-vKu"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems>
                         <barButtonItem systemItem="play" id="f3n-qr-UgK">
@@ -169,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBx-OJ-Jb8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1702" y="-68"/>
+            <point key="canvasLocation" x="1702" y="-69"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hU9-ir-EVf">
