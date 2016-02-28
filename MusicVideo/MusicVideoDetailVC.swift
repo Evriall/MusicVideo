@@ -39,5 +39,10 @@ class MusicVideoDetailVC: UIViewController {
         }
     }
 
+    @IBAction func playVideo(sender: AnyObject) {
+        if let url = NSURL(string: videos!.vVideoUrl) {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
 
 }

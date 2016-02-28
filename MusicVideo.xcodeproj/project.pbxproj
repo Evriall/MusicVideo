@@ -20,6 +20,7 @@
 		9ACF8D3D1C7DD81600D64B91 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF8D3C1C7DD81600D64B91 /* APIManager.swift */; };
 		9ACF8D401C7DF3BC00D64B91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF8D3F1C7DF3BC00D64B91 /* Constants.swift */; };
 		9ACF8D421C7DF56300D64B91 /* MusicVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF8D411C7DF56300D64B91 /* MusicVideo.swift */; };
+		9AE4B5391C83034A00E56E48 /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE4B5381C83034A00E56E48 /* SettingsTVC.swift */; };
 		9AF30CE51C7F4A5F00EC0A57 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF30CE41C7F4A5F00EC0A57 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		9ACF8D3C1C7DD81600D64B91 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = ../APIManager.swift; sourceTree = "<group>"; };
 		9ACF8D3F1C7DF3BC00D64B91 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9ACF8D411C7DF56300D64B91 /* MusicVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideo.swift; sourceTree = "<group>"; };
+		9AE4B5381C83034A00E56E48 /* SettingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTVC.swift; sourceTree = "<group>"; };
 		9AF30CE21C7F4A4E00EC0A57 /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		9AF30CE31C7F4A5E00EC0A57 /* MusicVideo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicVideo-Bridging-Header.h"; sourceTree = "<group>"; };
 		9AF30CE41C7F4A5F00EC0A57 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				9A79BD461C808C0E00D0529D /* MusicVideoTVC.swift */,
 				9A79BD481C80D3DD00D0529D /* MusicVideoTableViewCell.swift */,
 				9AA978E01C822D7200D9D945 /* MusicVideoDetailVC.swift */,
+				9AE4B5381C83034A00E56E48 /* SettingsTVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				9ACF8D0B1C7DBE0700D64B91 /* AppDelegate.swift in Sources */,
 				9AF30CE51C7F4A5F00EC0A57 /* Reachability.m in Sources */,
 				9ACF8D401C7DF3BC00D64B91 /* Constants.swift in Sources */,
+				9AE4B5391C83034A00E56E48 /* SettingsTVC.swift in Sources */,
 				9A79BD471C808C0E00D0529D /* MusicVideoTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -30,11 +30,7 @@ class MusicVideoTVC: UITableViewController {
     
     func didLoadData(videos: [Videos]){
         self.videos = videos
-        //        print(videos.count)
-//        for item in videos {
-//            
-//            //            print(item.vName)
-//        }
+
         
         tableView.reloadData()
     }
