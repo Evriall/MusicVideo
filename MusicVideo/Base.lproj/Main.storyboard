@@ -311,6 +311,9 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NtE-bp-ZRM">
                                                     <rect key="frame" x="535" y="26" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="touchIdChanged:" destination="90D-Jw-PAS" eventType="valueChanged" id="wCB-dZ-CDF"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Security" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6x-9C-6KY">
                                                     <rect key="frame" x="8" y="31" width="101" height="21"/>
@@ -340,6 +343,9 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qOk-ax-SSR">
                                                     <rect key="frame" x="535" y="31" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="bestImageChanged:" destination="90D-Jw-PAS" eventType="valueChanged" id="hgS-cv-PZC"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best image quality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38S-lG-G2N">
                                                     <rect key="frame" x="8" y="26" width="255" height="41"/>
@@ -412,8 +418,13 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="aboutDisplay" destination="2Ol-Bf-q4q" id="v3g-IE-hIB"/>
+                        <outlet property="bestImageDisplay" destination="38S-lG-G2N" id="9Du-wo-oOy"/>
+                        <outlet property="feedBackDisplay" destination="rYu-Au-1Xg" id="RPd-xZ-N3Y"/>
                         <outlet property="labelListSize" destination="IuH-SI-1ue" id="fsc-wF-nyh"/>
+                        <outlet property="securityDisplay" destination="M6x-9C-6KY" id="2ph-nb-mW0"/>
                         <outlet property="slider" destination="U3v-5j-vNr" id="ah8-eI-0MD"/>
+                        <outlet property="touchId" destination="NtE-bp-ZRM" id="l4B-Z9-kqg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzG-bg-YVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

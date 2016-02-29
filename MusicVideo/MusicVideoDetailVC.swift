@@ -19,10 +19,8 @@ class MusicVideoDetailVC: UIViewController {
     var videos: Videos?
     override func viewDidLoad() {
         super.viewDidLoad()
-        vName.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
-        vGenre.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
-        vPrice.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
-        vRights.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "preferredFontChanged", name: UIContentSizeCategoryDidChangeNotification, object: nil)
+
         vName.text = videos?.vName
         vGenre.text = videos?.vGenre
         vPrice.text = videos?.vPrice
@@ -38,11 +36,30 @@ class MusicVideoDetailVC: UIViewController {
         
         }
     }
+    
+    func preferredFontChanged(){
+        
+        vName.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+        vGenre.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+        vPrice.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+        vRights.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+        
+    }
+    
+    
 
     @IBAction func playVideo(sender: AnyObject) {
         if let url = NSURL(string: videos!.vVideoUrl) {
             UIApplication.sharedApplication().openURL(url)
         }
     }
+    
+    deinit{
+       
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)
+        
+        
+    }
+
 
 }
