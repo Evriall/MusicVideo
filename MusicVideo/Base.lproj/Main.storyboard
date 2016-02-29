@@ -420,6 +420,7 @@
                     <connections>
                         <outlet property="aboutDisplay" destination="2Ol-Bf-q4q" id="v3g-IE-hIB"/>
                         <outlet property="bestImageDisplay" destination="38S-lG-G2N" id="9Du-wo-oOy"/>
+                        <outlet property="bestImageSwitch" destination="qOk-ax-SSR" id="lrT-om-3aM"/>
                         <outlet property="feedBackDisplay" destination="rYu-Au-1Xg" id="RPd-xZ-N3Y"/>
                         <outlet property="labelListSize" destination="IuH-SI-1ue" id="fsc-wF-nyh"/>
                         <outlet property="securityDisplay" destination="M6x-9C-6KY" id="2ph-nb-mW0"/>

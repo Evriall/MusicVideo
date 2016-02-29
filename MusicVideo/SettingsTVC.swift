@@ -11,6 +11,7 @@ import UIKit
 class SettingsTVC: UITableViewController {
     @IBOutlet weak var aboutDisplay: UILabel!
 
+    @IBOutlet weak var bestImageSwitch: UISwitch!
     @IBOutlet weak var bestImageDisplay: UILabel!
     @IBOutlet weak var touchId: UISwitch!
     @IBOutlet weak var securityDisplay: UILabel!
@@ -21,11 +22,23 @@ class SettingsTVC: UITableViewController {
         super.viewDidLoad()
         tableView.alwaysBounceVertical = false
          NSNotificationCenter.defaultCenter().addObserver(self, selector: "preferredFontChanged", name: UIContentSizeCategoryDidChangeNotification, object: nil)
-        
+        touchId.on = NSUserDefaults.standardUserDefaults().boolForKey("SecSetting")
+        bestImageSwitch.on = NSUserDefaults.standardUserDefaults().boolForKey("BestImageQuality")
         labelListSize.text = "\(Int(slider.value))"
+        title = "Settings"
     }
 
     @IBAction func bestImageChanged(sender: UISwitch) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if bestImageSwitch.on {
+            
+            defaults.setBool(bestImageSwitch.on, forKey: "BestImageQuality")
+            
+        } else {
+            
+            defaults.setBool(false, forKey: "BestImageQuality")
+            
+        }
     }
     @IBAction func changedSlider(sender: UISlider) {
         
@@ -34,6 +47,16 @@ class SettingsTVC: UITableViewController {
     }
     
     @IBAction func touchIdChanged(sender: UISwitch) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if touchId.on {
+        
+            defaults.setBool(touchId.on, forKey: "SecSetting")
+        
+        } else {
+        
+            defaults.setBool(false, forKey: "SecSetting")
+        
+        }
     }
     
     func preferredFontChanged(){

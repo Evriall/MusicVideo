@@ -10,9 +10,16 @@ import UIKit
 
 class MusicVideoTVC: UITableViewController {
     var videos = [Videos]()
+    var sec:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sec = NSUserDefaults.standardUserDefaults().boolForKey("SecSetting")
+        if sec {
+        
+             
+        
+        }
          NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: "ReachStatusChanged", object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "preferredFontChanged", name: UIContentSizeCategoryDidChangeNotification, object: nil)
