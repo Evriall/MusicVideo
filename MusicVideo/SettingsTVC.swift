@@ -24,7 +24,14 @@ class SettingsTVC: UITableViewController {
          NSNotificationCenter.defaultCenter().addObserver(self, selector: "preferredFontChanged", name: UIContentSizeCategoryDidChangeNotification, object: nil)
         touchId.on = NSUserDefaults.standardUserDefaults().boolForKey("SecSetting")
         bestImageSwitch.on = NSUserDefaults.standardUserDefaults().boolForKey("BestImageQuality")
-        labelListSize.text = "\(Int(slider.value))"
+        if let APICnt = NSUserDefaults.standardUserDefaults().objectForKey("APICNT") as? Int {
+            slider.value = Float(APICnt)
+            labelListSize.text = "\(APICnt)"
+        } else {
+        
+            labelListSize.text = "\(Int(slider.value))"
+        
+        }
         title = "Settings"
     }
 
@@ -41,6 +48,8 @@ class SettingsTVC: UITableViewController {
         }
     }
     @IBAction func changedSlider(sender: UISlider) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(Int(slider.value), forKey: "APICNT")
         
         labelListSize.text = "\(Int(slider.value))"
         
