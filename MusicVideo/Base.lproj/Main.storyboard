@@ -223,7 +223,7 @@
                         <barButtonItem systemItem="play" id="f3n-qr-UgK">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="playVideo:" destination="Hoh-uh-vc3" id="gM6-lw-3uh"/>
+                                <action selector="playVideo:" destination="Hoh-uh-vc3" id="Odi-zQ-ibT"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="eKV-0s-9ga"/>
@@ -289,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgv-9T-JhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1673" y="596"/>
+            <point key="canvasLocation" x="1702" y="596"/>
         </scene>
         <!--SettingsTVC-->
         <scene sceneID="rzH-xA-mwy">

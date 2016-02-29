@@ -8,7 +8,10 @@
 
 import UIKit
 
-class MusicVideoDetailVC: UIViewController {
+import AVKit
+import AVFoundation
+
+class MusicVideoDetailVC: UIViewController{
 
     @IBOutlet weak var vName: UILabel!
     @IBOutlet weak var vGenre: UILabel!
@@ -16,19 +19,20 @@ class MusicVideoDetailVC: UIViewController {
     @IBOutlet weak var vRights: UILabel!
     @IBOutlet weak var videoImage: UIImageView!
     
-    var videos: Videos?
+    var videos: Videos!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "preferredFontChanged", name: UIContentSizeCategoryDidChangeNotification, object: nil)
 
-        vName.text = videos?.vName
-        vGenre.text = videos?.vGenre
-        vPrice.text = videos?.vPrice
-        vRights.text = videos?.vRights
+        vName.text = videos.vName
+        vGenre.text = videos.vGenre
+        vPrice.text = videos.vPrice
+        vRights.text = videos.vRights
 
-        if videos?.vImageData != nil {
+        if videos.vImageData != nil {
         
-            videoImage.image = UIImage(data: (videos?.vImageData)!)
+            videoImage.image = UIImage(data: (videos.vImageData)!)
         
         } else {
         
@@ -46,13 +50,18 @@ class MusicVideoDetailVC: UIViewController {
         
     }
     
+    @IBAction func playVideo(sender: UIBarButtonItem) {
+            let url = NSURL(string: videos.vVideoUrl)!
+            let player = AVPlayer(URL: url)
+            let playerViewController = AVPlayerViewController()
+            playerViewController.player = player
+            self.presentViewController(playerViewController, animated: true) {
+                playerViewController.player?.play()
+            }
+
+    }
     
 
-    @IBAction func playVideo(sender: AnyObject) {
-        if let url = NSURL(string: videos!.vVideoUrl) {
-            UIApplication.sharedApplication().openURL(url)
-        }
-    }
     
     deinit{
        
