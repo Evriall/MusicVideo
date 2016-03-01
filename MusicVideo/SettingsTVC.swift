@@ -18,6 +18,11 @@ class SettingsTVC: UITableViewController {
     @IBOutlet weak var feedBackDisplay: UILabel!
     @IBOutlet weak var labelListSize: UILabel!
     @IBOutlet weak var slider: UISlider!
+    
+    @IBOutlet weak var descriptionNumberOfMusivVideo: UILabel!
+    
+    @IBOutlet weak var footnoteLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.alwaysBounceVertical = false
@@ -75,6 +80,8 @@ class SettingsTVC: UITableViewController {
         bestImageDisplay.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
         securityDisplay.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
         feedBackDisplay.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        descriptionNumberOfMusivVideo.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        footnoteLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
     
     }
     
