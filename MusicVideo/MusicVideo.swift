@@ -143,8 +143,15 @@ class Videos{
         _image = image["label"] as? String
         {
             
-            self._vImageUrl = _image.stringByReplacingOccurrencesOfString("100x100", withString: "600x600")
+            let imageQuality = NSUserDefaults.standardUserDefaults().boolForKey("BestImageQuality")
+           
+            if (imageQuality && reachabilityStatus == WIFI) {
+                self._vImageUrl = _image.stringByReplacingOccurrencesOfString("100x100", withString: "600x600")
+            } else {
+                 self._vImageUrl = _image.stringByReplacingOccurrencesOfString("100x100", withString: "200x200")
+            }
             
+
         } else {
             
             self._vImageUrl = ""

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
+class MusicVideoTVC: UITableViewController {
     var videos = [Videos]()
     var filterSearch = [Videos]()
     var sec:Bool = false
@@ -47,7 +47,7 @@ class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
         resultSearchController.searchResultsUpdater = self
         definesPresentationContext = true
         resultSearchController.dimsBackgroundDuringPresentation = false
-        resultSearchController.searchBar.placeholder = "Search for artist"
+        resultSearchController.searchBar.placeholder = "Search for Artist, Name, Rank"
         resultSearchController.searchBar.searchBarStyle = UISearchBarStyle.Prominent
         tableView.tableHeaderView = resultSearchController.searchBar
         tableView.reloadData()
@@ -202,11 +202,11 @@ class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
             runAPI()
         }
     }
-    
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        searchController.searchBar.text!.lowercaseString
-        filterSearch(searchController.searchBar.text!)
-    }
+//    
+//    func updateSearchResultsForSearchController(searchController: UISearchController) {
+//        searchController.searchBar.text!.lowercaseString
+//        filterSearch(searchController.searchBar.text!)
+//    }
     
     func filterSearch(searchText: String){
     
@@ -214,8 +214,19 @@ class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
 //        let array = (videos as NSArray).filteredArrayUsingPredicate(predicate)
 //        filterSearch = array as! [Videos]
         
-        filterSearch = videos.filter{videos in return videos.vArtist.lowercaseString.containsString(searchText.lowercaseString)}
+        filterSearch = videos.filter{videos in return videos.vArtist.lowercaseString.containsString(searchText.lowercaseString) || "\(videos.vRank)".containsString(searchText.lowercaseString) || videos.vName.containsString(searchText.lowercaseString)}
         tableView.reloadData()
     
     }
+}
+
+extension MusicVideoTVC: UISearchResultsUpdating {
+
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        searchController.searchBar.text!.lowercaseString
+        filterSearch(searchController.searchBar.text!)
+    }
+    
+
 }

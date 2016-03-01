@@ -366,7 +366,7 @@
                                         <rect key="frame" x="0.0" y="232" width="600" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3HL-wB-5GD" id="YYV-qy-quI">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NtE-bp-ZRM">
@@ -376,20 +376,18 @@
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Security" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6x-9C-6KY">
-                                                    <rect key="frame" x="8" y="31" width="101" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="101" id="3QB-0g-4LH"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="8" y="31" width="519" height="21"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="NtE-bp-ZRM" firstAttribute="centerY" secondItem="M6x-9C-6KY" secondAttribute="centerY" id="AY8-tp-oPp"/>
+                                                <constraint firstItem="M6x-9C-6KY" firstAttribute="centerY" secondItem="NtE-bp-ZRM" secondAttribute="centerY" id="Fhv-c2-2JZ"/>
                                                 <constraint firstItem="NtE-bp-ZRM" firstAttribute="centerY" secondItem="YYV-qy-quI" secondAttribute="centerY" id="G54-s3-rH1"/>
-                                                <constraint firstItem="M6x-9C-6KY" firstAttribute="leading" secondItem="YYV-qy-quI" secondAttribute="leadingMargin" id="Ib6-Zy-BhZ"/>
-                                                <constraint firstItem="M6x-9C-6KY" firstAttribute="top" secondItem="YYV-qy-quI" secondAttribute="topMargin" constant="23" id="gW2-1G-svl"/>
+                                                <constraint firstItem="NtE-bp-ZRM" firstAttribute="leading" secondItem="M6x-9C-6KY" secondAttribute="trailing" constant="8" symbolic="YES" id="HcR-Br-0PU"/>
+                                                <constraint firstItem="M6x-9C-6KY" firstAttribute="leading" secondItem="YYV-qy-quI" secondAttribute="leadingMargin" id="UgD-GE-8TK"/>
+                                                <constraint firstItem="M6x-9C-6KY" firstAttribute="top" secondItem="YYV-qy-quI" secondAttribute="topMargin" constant="23" id="aLc-nD-ajN"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="NtE-bp-ZRM" secondAttribute="trailing" constant="8" id="scU-ei-USw"/>
                                             </constraints>
                                         </tableViewCellContentView>

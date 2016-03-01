@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import LocalAuthentication
 
 class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate  {
     @IBOutlet weak var aboutDisplay: UILabel!
@@ -28,7 +29,13 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate  {
         super.viewDidLoad()
         tableView.alwaysBounceVertical = false
          NSNotificationCenter.defaultCenter().addObserver(self, selector: "preferredFontChanged", name: UIContentSizeCategoryDidChangeNotification, object: nil)
-        touchId.on = NSUserDefaults.standardUserDefaults().boolForKey("SecSetting")
+        if touchIDCheck() {
+            touchId.on = NSUserDefaults.standardUserDefaults().boolForKey("SecSetting")
+        } else {
+        
+            touchId.enabled = false
+            securityDisplay.text = "TouchID is not available"
+        }
         bestImageSwitch.on = NSUserDefaults.standardUserDefaults().boolForKey("BestImageQuality")
         if let APICnt = NSUserDefaults.standardUserDefaults().objectForKey("APICNT") as? Int {
             slider.value = Float(APICnt)
@@ -39,6 +46,25 @@ class SettingsTVC: UITableViewController, MFMailComposeViewControllerDelegate  {
         
         }
         title = "Settings"
+    }
+    
+    func touchIDCheck() -> Bool{
+        let context = LAContext()
+        var touchIDError : NSError?
+        if !context.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &touchIDError) {
+            switch LAError(rawValue: touchIDError!.code)! {
+                
+            case .TouchIDNotAvailable:
+                return false
+            case .TouchIDNotEnrolled:
+                return false
+            default:
+                return true
+                
+            }
+
+        }
+        return true
     }
 
     @IBAction func bestImageChanged(sender: UISwitch) {
