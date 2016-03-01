@@ -8,11 +8,12 @@
 
 import UIKit
 
-class MusicVideoTVC: UITableViewController {
+class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
     var videos = [Videos]()
+    var filterSearch = [Videos]()
     var sec:Bool = false
     var limit = 10
-    
+    let resultSearchController = UISearchController(searchResultsController: nil)
     override func viewDidLoad() {
         super.viewDidLoad()
         sec = NSUserDefaults.standardUserDefaults().boolForKey("SecSetting")
@@ -41,6 +42,14 @@ class MusicVideoTVC: UITableViewController {
 
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.redColor()]
         title = ("The iTunes Top \(limit) Music Videos")
+        
+        // Setup the Search Controller
+        resultSearchController.searchResultsUpdater = self
+        definesPresentationContext = true
+        resultSearchController.dimsBackgroundDuringPresentation = false
+        resultSearchController.searchBar.placeholder = "Search for artist"
+        resultSearchController.searchBar.searchBarStyle = UISearchBarStyle.Prominent
+        tableView.tableHeaderView = resultSearchController.searchBar
         tableView.reloadData()
     }
     func getAPICount() {
@@ -126,7 +135,16 @@ class MusicVideoTVC: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return videos.count
+        var count = 0
+        if resultSearchController.active {
+            
+            count = filterSearch.count
+            
+        } else {
+            count = videos.count
+        }
+        return count
+            
     }
 
     private struct storyboard {
@@ -139,8 +157,11 @@ class MusicVideoTVC: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(storyboard.cellReuseIdentifier, forIndexPath: indexPath) as! MusicVideoTableViewCell
-        let video = videos[indexPath.row]
-        cell.video = video
+        if resultSearchController.active {
+            cell.video = filterSearch[indexPath.row]
+        } else {
+            cell.video = videos[indexPath.row]
+        }
 
         return cell
     }
@@ -150,11 +171,20 @@ class MusicVideoTVC: UITableViewController {
         
             if let indexPath = tableView.indexPathForSelectedRow {
             
-            
-                let video = videos[indexPath.row]
+                
+    
                 let dvc = segue.destinationViewController as! MusicVideoDetailVC
-                dvc.videos = video
-                dvc.title = video.vArtist
+                if resultSearchController.active {
+                
+                    dvc.videos = filterSearch[indexPath.row]
+                    dvc.title = filterSearch[indexPath.row].vArtist
+                }else {
+                
+                    dvc.videos = videos[indexPath.row]
+                    dvc.title = videos[indexPath.row].vArtist
+                }
+                
+                
                 
              
             }
@@ -166,6 +196,26 @@ class MusicVideoTVC: UITableViewController {
     @IBAction func refresh(sender: UIRefreshControl) {
         
         refreshControl?.endRefreshing()
-        runAPI()
+        if resultSearchController.active {
+            refreshControl?.attributedTitle = NSAttributedString(string: "No refresh allowed in search")
+        }else {
+            runAPI()
+        }
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        searchController.searchBar.text!.lowercaseString
+        filterSearch(searchController.searchBar.text!)
+    }
+    
+    func filterSearch(searchText: String){
+    
+//        let predicate:NSPredicate = NSPredicate(format: "vArtist contains[c] %@", searchText.lowercaseString)
+//        let array = (videos as NSArray).filteredArrayUsingPredicate(predicate)
+//        filterSearch = array as! [Videos]
+        
+        filterSearch = videos.filter{videos in return videos.vArtist.lowercaseString.containsString(searchText.lowercaseString)}
+        tableView.reloadData()
+    
     }
 }
